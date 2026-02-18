@@ -4,60 +4,123 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Blog</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="index.js"></script>
+    <title>The Ketons | Premium Lifestyle</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="index.js" defer></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-primary: #3b82f6;
+        --color-primary-hover: #2563eb;
+        --color-secondary: #60a5fa;
+        --color-dark: #000000;
+        --color-light: #f8fafc;
+        --color-glass: rgba(255, 255, 255, 0.03);
+        --color-glass-border: rgba(255, 255, 255, 0.08);
+        --shadow-premium: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+      }
+
+      @layer base {
+        body {
+          @apply bg-dark text-light font-['Outfit'];
+        }
+      }
+
+      @layer utilities {
+        .glass-blur {
+          backdrop-filter: blur(12px);
+        }
+        .text-gradient {
+          @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+        }
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+      }
+      .animate-float {
+        animation: float 6s ease-in-out infinite;
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body class="bg-dark text-light leading-relaxed overflow-x-hidden">
+    <!-- Promo Bar -->
+    <div class="bg-gradient-to-r from-primary to-secondary py-3 overflow-hidden whitespace-nowrap fixed top-0 left-0 w-full z-[1001]">
+      <div class="inline-block pl-[100%] animate-[marquee_30s_linear_infinite] font-semibold text-sm text-white uppercase tracking-widest">
+        FREE INSIDE VALLEY SHIPPING ON ORDERS OVER Rs 1000 • FREE NEPAL SHIPPING ON ORDERS OVER Rs 5000 • GLOBAL SHIPPING AVAILABLE
+      </div>
+    </div>
+
     <!-- Navigation bar-->
-    <div class="nav-bar">
-      <div class="marquee">
-        <!--<marquee>-->
-        >
-        <h4>
-          FREE INSIDE VALLEY SHIPPING ON ORDER OVER Rs1000 .FREE NEPAL SHIPPING
-          ON ORDER OVER Rs5000 .FREE INTERNATIOPNAL SHIPPING ON ORDER OVER
-          Rs10,000
-        </h4>
-        <!--</marquee
-        >-->
-      </div>
+    <nav class="flex justify-between items-center px-[5%] py-6 fixed top-10 left-0 w-full z-[1000] bg-black/82 glass-blur border-b border-glass-border transition-all duration-300">
       <div class="nav-logo">
-        <h1 class="logo-text" style="color: aliceblue">
-          <span>Surjal </span>shrestha
-        </h1>
+        <h1 class="text-3xl font-bold tracking-tighter"><span class="text-gradient">The</span> Ketons</h1>
       </div>
-      <div class="nav-list">
-        <ul>
-          <li>
-            <a href="Home.html">Home</a>
-          </li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="about.html">About us</a></li>
-          <li><a href="contact.html">Contact us</a></li>
-          <button>Login</button>
+      <div class="nav-list hidden lg:block">
+        <ul class="flex items-center gap-8 list-none">
+          <li><a href="index.html" class="font-medium text-light/80 hover:text-primary transition-all duration-300">Home</a></li>
+          <li><a href="shop.html" class="font-medium text-light/80 hover:text-primary transition-all duration-300">Shop</a></li>
+          <li><a href="about.html" class="font-medium text-light/80 hover:text-primary transition-all duration-300">About us</a></li>
+          <li><a href="contact.html" class="font-medium text-light/80 hover:text-primary transition-all duration-300">Contact us</a></li>
+          <li><button onclick="location.href='login.html'" class="px-8 py-3 bg-gradient-to-br from-primary to-secondary rounded-xl text-white font-semibold cursor-pointer shadow-[0_4px_15px_rgba(59,130,246,0.3)] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(59,130,246,0.4)] transition-all duration-300">Login</button></li>
         </ul>
       </div>
-    </div>
-    <!-- design part-->
-    <div class="color">
-      <div class="name">
-        <h1 style="font-family: 'Courier New', Courier, monospace">
-          30% off in <br />Winter sale
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="h-screen flex flex-col lg:flex-row items-center justify-between px-[10%] pt-[120px] bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.15),transparent),radial-gradient(circle_at_bottom_left,rgba(37,99,235,0.1),transparent)]">
+      <div class="flex-1 max-w-[600px] text-center lg:text-left">
+        <h1 class="text-5xl lg:text-7xl font-extrabold leading-[1.1] mb-6">
+          Elevate Your 
+          <span class="block text-gradient">Lifestyle</span>
+          Experience
         </h1>
+        <p class="text-xl lg:text-2xl opacity-70 mb-10">
+          Discover our exclusive winter collection. Designed for comfort, 
+          engineered for style. Get up to 30% off on all premium hoodies.
+        </p>
+        <a href="shop.html" class="inline-block px-10 py-4 bg-primary text-white font-semibold rounded-xl hover:bg-primary-hover hover:scale-105 transition-all duration-300">Shop Collection</a>
       </div>
-      <div class="sdmn">
-        <h1 style="font-size: 100px">
-          <marquee> <b>SDMN HOODIE</b></marquee>
-        </h1>
-      </div>
-      <div class="image">
+      <div class="flex-1 flex justify-center lg:justify-end mt-12 lg:mt-0 relative">
         <img
           src="img/MauveHoodie.webp"
-          alt="sidemen"
-          style="width: 600px; height: 600 px"
+          alt="Mauve Premium Hoodie"
+          class="w-full max-w-[550px] drop-shadow-[0_20px_50px_rgba(0,0,0,0.5)] animate-float"
         />
       </div>
-    </div>
+    </header>
+
+    <!-- Featured Section -->
+    <section class="py-24 px-[5%] text-center">
+      <h2 class="text-5xl font-bold mb-12">Featured <span class="text-gradient">Collections</span></h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="bg-glass p-12 rounded-[24px] border border-glass-border glass-blur cursor-pointer hover:-translate-y-2 hover:border-primary transition-all duration-300 group">
+          <h3 class="text-2xl font-semibold mb-4">Winter Essentials</h3>
+          <p class="opacity-70 group-hover:opacity-100 transition-opacity">Premium hoodies and jackets for the cold season.</p>
+        </div>
+        <div class="bg-glass p-12 rounded-[24px] border border-glass-border glass-blur cursor-pointer hover:-translate-y-2 hover:border-primary transition-all duration-300 group">
+          <h3 class="text-2xl font-semibold mb-4">New Arrivals</h3>
+          <p class="opacity-70 group-hover:opacity-100 transition-opacity">The latest drops from our design studio.</p>
+        </div>
+        <div class="bg-glass p-12 rounded-[24px] border border-glass-border glass-blur cursor-pointer hover:-translate-y-2 hover:border-primary transition-all duration-300 group">
+          <h3 class="text-2xl font-semibold mb-4">Limited Edition</h3>
+          <p class="opacity-70 group-hover:opacity-100 transition-opacity">Exclusive designs available for a short time.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-12 px-[5%] bg-black/30 border-t border-glass-border text-center mt-24">
+      <p class="opacity-60 text-sm italic">&copy; 2026 The Ketons. All rights reserved.</p>
+    </footer>
+
+    <style>
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+      }
+    </style>
   </body>
 </html>

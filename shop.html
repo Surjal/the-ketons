@@ -4,70 +4,143 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Blog</title>
-    <link rel="stylesheet" href="shop.css" />
-    <script src="index.js"></script>
+    <title>Shop | The Ketons</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="index.js" defer></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-primary: #3b82f6;
+        --color-primary-hover: #2563eb;
+        --color-secondary: #60a5fa;
+        --color-dark: #000000;
+        --color-light: #f8fafc;
+        --color-glass: rgba(255, 255, 255, 0.03);
+        --color-glass-border: rgba(255, 255, 255, 0.08);
+      }
+
+      @layer base {
+        body {
+          @apply bg-dark text-light font-['Outfit'];
+        }
+      }
+
+      @layer utilities {
+        .glass-blur {
+          backdrop-filter: blur(12px);
+        }
+        .text-gradient {
+          @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+        }
+      }
+
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
   </head>
-  <body>
+  <body class="bg-dark text-light leading-relaxed">
+    <!-- Promo Bar -->
+    <div class="bg-gradient-to-r from-primary to-secondary py-3 overflow-hidden whitespace-nowrap fixed top-0 left-0 w-full z-[1001]">
+      <div class="inline-block pl-[100%] animate-[marquee_30s_linear_infinite] font-semibold text-sm text-white uppercase tracking-widest">
+        FREE INSIDE VALLEY SHIPPING ON ORDERS OVER Rs 1000 • FREE NEPAL SHIPPING ON ORDERS OVER Rs 5000 • GLOBAL SHIPPING AVAILABLE
+      </div>
+    </div>
+
     <!-- Navigation bar-->
-    <div class="nav-bar">
-      <div class="marquee">
-        <!--<marquee>-->
-        >
-        <h4>
-          FREE INSIDE VALLEY SHIPPING ON ORDER OVER Rs1000 .FREE NEPAL SHIPPING
-          ON ORDER OVER Rs5000 .FREE INTERNATIOPNAL SHIPPING ON ORDER OVER
-          Rs10,000
-        </h4>
-        <!--</marquee
-        >-->
-      </div>
+    <nav class="flex justify-between items-center px-[5%] py-6 fixed top-10 left-0 w-full z-[1000] bg-black/82 glass-blur border-b border-glass-border transition-all duration-300">
       <div class="nav-logo">
-        <h1 class="logo-text" style="color: aliceblue">
-          <span>Surjal </span>shrestha
-        </h1>
+        <h1 class="text-3xl font-bold tracking-tighter"><span class="text-gradient">The</span> Ketons</h1>
       </div>
-      <div class="nav-list">
-        <ul>
-          <li>
-            <a href="Home.html">Home</a>
-          </li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="about.html">About us</a></li>
-          <li><a href="contact.html">Contact us</a></li>
-          <button>Login</button>
+      <div class="nav-list hidden lg:block">
+        <ul class="flex items-center gap-8 list-none">
+          <li><a href="index.html" class="font-medium text-light/80 hover:text-primary transition-all duration-300">Home</a></li>
+          <li><a href="shop.html" class="font-medium text-primary transition-all duration-300">Shop</a></li>
+          <li><a href="about.html" class="font-medium text-light/80 hover:text-primary transition-all duration-300">About us</a></li>
+          <li><a href="contact.html" class="font-medium text-light/80 hover:text-primary transition-all duration-300">Contact us</a></li>
+          <li><button onclick="location.href='login.html'" class="px-8 py-3 bg-gradient-to-br from-primary to-secondary rounded-xl text-white font-semibold cursor-pointer shadow-[0_4px_15px_rgba(59,130,246,0.3)] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(59,130,246,0.4)] transition-all duration-300">Login</button></li>
         </ul>
       </div>
-    </div>
-    <div class="list">
-      <div class="product"><b>Product Categories</b></div>
-      <div class="category">
-        <ul>
-          <li><a href="#">Clothes</a></li>
-          <li><a href="#">Earphone</a></li>
-          <li><a href="#">Gadgets</a></li>
-          <li><a href="#">Gaming</a></li>
-          <li><a href="#">Headphone</a></li>
-          <li><a href="#">Laptops</a></li>
-          <li><a href="#">Speaker</a></li>
-        </ul>
+    </nav>
+
+    <main class="pt-[150px] min-h-screen px-[5%] max-w-[1400px] mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-[250px_1fr] gap-12">
+        <!-- Sidebar Filters -->
+        <aside class="hidden lg:block bg-glass p-8 rounded-[24px] border border-glass-border glass-blur h-fit sticky top-[150px]">
+          <h3 class="text-xl font-semibold mb-6">Categories</h3>
+          <ul class="space-y-4">
+            <li><a href="#" class="text-primary font-medium pl-1">All Products</a></li>
+            <li><a href="#" class="opacity-60 hover:opacity-100 hover:text-primary transition-all duration-300">Clothes</a></li>
+            <li><a href="#" class="opacity-60 hover:opacity-100 hover:text-primary transition-all duration-300">Earphones</a></li>
+            <li><a href="#" class="opacity-60 hover:opacity-100 hover:text-primary transition-all duration-300">Gadgets</a></li>
+            <li><a href="#" class="opacity-60 hover:opacity-100 hover:text-primary transition-all duration-300">Gaming</a></li>
+            <li><a href="#" class="opacity-60 hover:opacity-100 hover:text-primary transition-all duration-300">Headphones</a></li>
+            <li><a href="#" class="opacity-60 hover:opacity-100 hover:text-primary transition-all duration-300">Laptops</a></li>
+            <li><a href="#" class="opacity-60 hover:opacity-100 hover:text-primary transition-all duration-300">Speakers</a></li>
+          </ul>
+        </aside>
+
+        <!-- Product Grid -->
+        <section>
+          <div class="mb-12">
+            <h2 class="text-4xl font-bold mb-2">Our <span class="text-gradient">Collection</span></h2>
+            <p class="opacity-60">Quality products for your premium lifestyle.</p>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-8">
+            <!-- Product 1 -->
+            <div class="product-card bg-glass rounded-[24px] border border-glass-border overflow-hidden glass-blur transition-all duration-300 hover:-translate-y-2 hover:border-primary group">
+              <div class="h-[300px] relative overflow-hidden bg-white/2">
+                <img src="/img/bhargab.jpg" alt="Thudie" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+                <span class="absolute top-4 right-4 bg-secondary px-4 py-1.5 rounded-full text-xs font-bold text-white shadow-lg">Sale</span>
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-semibold mb-2">Thudie Premium</h3>
+                <div class="flex flex-col gap-1 mb-6">
+                  <span class="price text-xl font-bold text-primary">Rs 4,500</span>
+                  <span class="text-sm opacity-40 line-through">Rs 6,000</span>
+                </div>
+                <button class="add-to-cart w-full py-3 bg-white/5 border border-glass-border rounded-xl font-semibold hover:bg-primary hover:border-primary transition-all duration-300">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card bg-glass rounded-[24px] border border-glass-border overflow-hidden glass-blur transition-all duration-300 hover:-translate-y-2 hover:border-primary group">
+              <div class="h-[300px] relative overflow-hidden bg-white/2">
+                <img src="/img/pukar.jpg" alt="Messi Edition" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110">
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-semibold mb-2">Messi Special Edition</h3>
+                <div class="mb-6">
+                  <span class="price text-xl font-bold text-primary">Rs 5,200</span>
+                </div>
+                <button class="add-to-cart w-full py-3 bg-white/5 border border-glass-border rounded-xl font-semibold hover:bg-primary hover:border-primary transition-all duration-300">Add to Cart</button>
+              </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card bg-glass rounded-[24px] border border-glass-border overflow-hidden glass-blur transition-all duration-300 hover:-translate-y-2 hover:border-primary group">
+              <div class="h-[300px] flex items-center justify-center bg-white/2 italic opacity-30">
+                Image Placeholder
+              </div>
+              <div class="p-6">
+                <h3 class="text-lg font-semibold mb-2">Vibe Headset</h3>
+                <div class="mb-6">
+                  <span class="price text-xl font-bold text-primary">Rs 8,900</span>
+                </div>
+                <button class="add-to-cart w-full py-3 bg-white/5 border border-glass-border rounded-xl font-semibold hover:bg-primary hover:border-primary transition-all duration-300">Add to Cart</button>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    </div>
-    <div class="flex-container">
-      <div class="raj">
-        <img src="/img/bhargab.jpg" alt="bhargab" style="width: 25%" />
-        <h1>Thudie</h1>
-        <p class="price">Rs 50</p>
-        <p>limited offer only</p>
-        <p><button>Add to Cart</button></p>
-      </div>
-      <div class="pukar">
-        <img src="/img/pukar.jpg" alt="pukar" style="width: 25%" />
-        <h1>Messi</h1>
-        <p class="price">Rs 50</p>
-        <p>limited offer only</p>
-        <p><button>Add to Cart</button></p>
-      </div>
-    </div>
+    </main>
+
+    <footer class="py-12 px-[5%] bg-black/30 border-t border-glass-border text-center mt-24">
+      <p class="opacity-60 text-sm italic">&copy; 2026 The Ketons. All rights reserved.</p>
+    </footer>
   </body>
 </html>

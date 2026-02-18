@@ -4,40 +4,91 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Blog</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="index.js"></script>
+    <title>About Us | The Ketons</title>
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <script src="index.js" defer></script>
+    <style type="text/tailwindcss">
+      @theme {
+        --color-primary: #3b82f6;
+        --color-primary-hover: #2563eb;
+        --color-secondary: #60a5fa;
+        --color-dark: #000000;
+        --color-light: #f8fafc;
+        --color-glass: rgba(255, 255, 255, 0.03);
+        --color-glass-border: rgba(255, 255, 255, 0.08);
+      }
+
+      @layer base {
+        body {
+          @apply bg-dark text-light font-['Outfit'];
+        }
+      }
+
+      @layer utilities {
+        .glass-blur {
+          backdrop-filter: blur(12px);
+        }
+        .text-gradient {
+          @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
+        }
+      }
+
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-100%); }
+      }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <!-- Navigation bar-->
-    <div class="nav-bar">
-      <div class="marquee">
-        <!--<marquee>-->
-        >
-        <h4>
-          FREE INSIDE VALLEY SHIPPING ON ORDER OVER Rs1000 .FREE NEPAL SHIPPING
-          ON ORDER OVER Rs5000 .FREE INTERNATIOPNAL SHIPPING ON ORDER OVER
-          Rs10,000
-        </h4>
-        <!--</marquee
-        >-->
-      </div>
-      <div class="nav-logo">
-        <h1 class="logo-text" style="color: aliceblue">
-          <span>Surjal </span>shrestha
-        </h1>
-      </div>
-      <div class="nav-list">
-        <ul>
-          <li>
-            <a href="Home.html">Home</a>
-          </li>
-          <li><a href="shop.html">Shop</a></li>
-          <li><a href="aboutus.html">About us</a></li>
-          <li><a href="contact.html">Contact us</a></li>
-          <button>Login</button>
-        </ul>
+  <body class="bg-dark text-light leading-relaxed">
+    <!-- Promo Bar -->
+    <div class="bg-gradient-to-r from-primary to-secondary py-3 overflow-hidden whitespace-nowrap fixed top-0 left-0 w-full z-[1001]">
+      <div class="inline-block pl-[100%] animate-[marquee_30s_linear_infinite] font-semibold text-sm text-white uppercase tracking-widest">
+        FREE INSIDE VALLEY SHIPPING ON ORDERS OVER Rs 1000 • FREE NEPAL SHIPPING ON ORDERS OVER Rs 5000 • GLOBAL SHIPPING AVAILABLE
       </div>
     </div>
+
+    <!-- Navigation bar-->
+    <nav class="flex justify-between items-center px-[5%] py-6 fixed top-10 left-0 w-full z-[1000] bg-black/82 glass-blur border-b border-glass-border transition-all duration-300">
+      <div class="nav-logo">
+        <h1 class="text-3xl font-bold tracking-tighter"><span class="text-gradient">The</span> Ketons</h1>
+      </div>
+      <div class="nav-list hidden lg:block">
+        <ul class="flex items-center gap-8 list-none">
+          <li><a href="index.html" class="font-medium text-light/80 hover:text-primary transition-all duration-300">Home</a></li>
+          <li><a href="shop.html" class="font-medium text-light/80 hover:text-primary transition-all duration-300">Shop</a></li>
+          <li><a href="about.html" class="font-medium text-primary transition-all duration-300">About us</a></li>
+          <li><a href="contact.html" class="font-medium text-light/80 hover:text-primary transition-all duration-300">Contact us</a></li>
+          <li><button onclick="location.href='login.html'" class="px-8 py-3 bg-gradient-to-br from-primary to-secondary rounded-xl text-white font-semibold cursor-pointer shadow-[0_4px_15px_rgba(59,130,246,0.3)] hover:-translate-y-0.5 hover:shadow-[0_6px_20px_rgba(59,130,246,0.4)] transition-all duration-300">Login</button></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="pt-[180px] pb-24 max-w-[1000px] mx-auto px-[5%]">
+      <section class="text-center mb-20">
+        <h1 class="text-6xl font-extrabold mb-6">Behind <span class="text-gradient">The Ketons</span></h1>
+        <p class="text-xl opacity-70 max-w-[700px] mx-auto">
+          We are more than just an e-commerce platform. We are a lifestyle brand dedicated to quality, 
+          style, and the premium experience our customers deserve.
+        </p>
+      </section>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="bg-glass p-12 rounded-[24px] border border-glass-border glass-blur">
+          <h2 class="text-2xl font-bold text-primary mb-4">Our Mission</h2>
+          <p class="opacity-80 leading-relaxed">To bridge the gap between high-end fashion and everyday comfort, delivering products that make a statement.</p>
+        </div>
+        <div class="bg-glass p-12 rounded-[24px] border border-glass-border glass-blur">
+          <h2 class="text-2xl font-bold text-secondary mb-4">Our Vision</h2>
+          <p class="opacity-80 leading-relaxed">To become the leading lifestyle destination in Nepal and beyond, fostering a community of quality-driven individuals.</p>
+        </div>
+      </div>
+    </main>
+
+    <footer class="py-12 px-[5%] bg-black/30 border-t border-glass-border text-center mt-24">
+      <p class="opacity-60 text-sm italic">&copy; 2026 The Ketons. All rights reserved.</p>
+    </footer>
   </body>
 </html>
